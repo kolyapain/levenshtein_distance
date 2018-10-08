@@ -30,7 +30,6 @@ func open_file(filename string) *bufio.Scanner {
 		os.Exit(1)
 	}
 	scanner := bufio.NewScanner(file)
-	defer file.Close()
 	return scanner
 }
 
@@ -98,7 +97,6 @@ func print_map(tbl []mmap) {
 func main() {
 	start := time.Now()
 	keyname, strlist := get_strings("input.txt")
-	tbl := make_map(keyname, strlist)
-	print_map(tbl)
+	print_map(make_map(keyname, strlist))
 	fmt.Println("finished in : ", time.Now().Sub(start) )
 }
