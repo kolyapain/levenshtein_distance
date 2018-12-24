@@ -17,13 +17,10 @@ type Results struct {
 
 func (r *Results) Sort() {
 	sort.Slice(r.Dists, func(i, j int) bool {
-		if r.Dists[i].Val < r.Dists[i].Val {
+		if r.Dists[i].Val < r.Dists[j].Val {
 			return true
 		}
-		if r.Dists[i].Val > r.Dists[i].Val {
-			return false
-		}
-		return r.Dists[i].Val < r.Dists[i].Val
+		return false
 	})
 }
 
